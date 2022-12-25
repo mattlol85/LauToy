@@ -25,6 +25,7 @@ public class LauToyController {
                 System.out.println(line);
             }
         }
+
         // See if python script was successful
         int exitCode = p.waitFor();
 

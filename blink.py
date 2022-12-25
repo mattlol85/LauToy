@@ -1,14 +1,17 @@
 import RPi.GPIO as GPIO
 from time import sleep
-
+print("Single Blink LED Script")
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(40, GPIO.OUT, initial=GPIO.LOW)
 
-while True:
-    GPIO.output(8, GPIO.HIGH)
-    sleep(1)
-    GPIO.output(8, GPIO.LOW)
-    sleep(1)
+GPIO.output(40, GPIO.LOW)
+sleep(1)
+GPIO.output(40, GPIO.HIGH)
+sleep(1)
+GPIO.output(40, GPIO.LOW)
+
+quit()
+
 
     
