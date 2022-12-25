@@ -8,7 +8,7 @@ import java.io.IOException;
 
 @RestController
 public class LauToyController {
-
+    boolean DEBUG_MODE = true;
     @GetMapping("/LED")
     public int BlinkLED() throws InterruptedException, IOException {
         // Use processbulder to call a python script that blinks the LED
@@ -18,12 +18,13 @@ public class LauToyController {
         // Start process
         Process p = pb.start();
         // Read process output
-        BufferedReader in = new BufferedReader(new java.io.InputStreamReader(p.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
+        if(DEBUG_MODE){
+            BufferedReader in = new BufferedReader(new java.io.InputStreamReader(p.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
         }
-
         // See if python script was successful
         int exitCode = p.waitFor();
 
